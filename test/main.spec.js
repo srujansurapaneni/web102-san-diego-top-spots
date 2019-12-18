@@ -20,7 +20,13 @@ describe('San Diego Top Spots', function() {
     done();
   });
 
-  it('should have the correct page title', function() {
+   //after each test,
+   afterEach(function *(){ 
+    //end the nightmare instance
+    yield nightmare.end();
+  })
+
+  it('should have the correct page title', function () {
     return nightmare
       .goto(url)
       .wait('table')
@@ -30,7 +36,7 @@ describe('San Diego Top Spots', function() {
       .end()
       .then(function(title) {
         expect(title).to.equal('San Diego Top Spots');
-      })
+      });
   });
 
   it('should have a heading', function() {
@@ -46,7 +52,7 @@ describe('San Diego Top Spots', function() {
       })
   });
 
-  it('should find a row with data', function() {
+  xit('should find a row with data', function() {
     return nightmare
       .goto(url)
       .wait('table')
@@ -59,7 +65,7 @@ describe('San Diego Top Spots', function() {
       })
   });
 
-  it('should find a link with the correct map url', function() {
+  xit('should find a link with the correct map url', function() {
     nightmare
       .goto(url)
       .wait('table')
