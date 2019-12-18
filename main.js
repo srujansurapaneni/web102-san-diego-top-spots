@@ -1,16 +1,10 @@
-
-import $ from 'jquery';
-
 $(document).ready(function() {
 // write your code here
-$.getJSON('http://time.jsontest.com', function(data) {
-        
-        var text = `Date: ${data.date}<br>
-                    Time: ${data.time}<br>
-                    Unix time: ${data.milliseconds_since_epoch}`
-                    
-        
-        $(".mypanel").html(text);
+$.getJSON("./data.json", function(dataMulti) {
+    dataMulti.forEach(function(dataSingle){
+            $('#mytable').append('<tr><td>'+dataSingle.name+'</td><td>'+dataSingle.description+'</td><td><a>'+dataSingle.location+'</a><td></tr>')
+        }
+        )
     });
 });
 

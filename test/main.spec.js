@@ -52,7 +52,7 @@ describe('San Diego Top Spots', function() {
       })
   });
 
-  xit('should find a row with data', function() {
+  it('should find a row with data', function() {
     return nightmare
       .goto(url)
       .wait('table')
@@ -65,7 +65,7 @@ describe('San Diego Top Spots', function() {
       })
   });
 
-  xit('should find a link with the correct map url', function() {
+  it('should find a link with the correct map url', function() {
     nightmare
       .goto(url)
       .wait('table')
